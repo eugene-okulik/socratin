@@ -1,14 +1,17 @@
 a = int(input("Введи число 1:"))
 b = int(input("Введи число 2:"))
 
-def add(a, b):
-    return a + b
 
-def multiply(a, b):
-    return a * b
+def add(y, x):
+    return x + y
 
-def subtraction(a, b):
-    return a - b
+
+def multiply(x, y):
+    return x * y
+
+
+def subtraction(x, y):
+    return x - y
 
 
 print("Сумма: ", add(a, b))
