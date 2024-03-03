@@ -16,7 +16,7 @@ def second(my_dicts):
 
 def third(my_dicts):
     my_new_dict = dict(my_dicts["dict"])
-    my_new_dict["('i am a tuple',)"] = (7, 7, 7)
+    my_new_dict[('i am a tuple',)] = (7, 7, 7)
     del my_new_dict["two"]
     return my_new_dict
 
