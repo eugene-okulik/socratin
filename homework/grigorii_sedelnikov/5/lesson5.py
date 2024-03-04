@@ -22,6 +22,8 @@ print(return_number_and_add_ten(string3))
 students = ['Ivanov', 'Petrov', 'Sidorov']
 subjects = ['math', 'biology', 'geography']
 
+to_string_students = ', '.join(students)
+to_string_subjects = ', '.join(subjects)
+
 print(
-    f"Students {students[0]}, {students[1]}, {students[2]} study these subjects: {subjects[0]}, {subjects[1]}, "
-    f"{subjects[2]}")
+    f"Students {to_string_students} study these subjects: {to_string_subjects}")
