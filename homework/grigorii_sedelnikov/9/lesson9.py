@@ -12,6 +12,6 @@ temperatures = [20, 15, 32, 34, 21, 19, 25, 27, 30, 32, 34, 30, 29, 25, 27, 22, 
                 30, 28, 24, 23]
 warm_days = list(map(lambda x: x > 28, temperatures))
 
-print(f"Максмиальная температура {max(temperatures)}")
-print(f"Минимальная температура {min(temperatures)}")
-print(f"Средняя температура {round(sum(temperatures) / len(temperatures))}")
+print(f"Максмиальная температура {max(warm_days)}")
+print(f"Минимальная температура {min(warm_days)}")
+print(f"Средняя температура {round(sum(warm_days) / len(warm_days))}")
