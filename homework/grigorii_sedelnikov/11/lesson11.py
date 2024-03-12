@@ -37,7 +37,8 @@ teach_book2 = TeachBook("informatica", "Сидоров", "657", "ISBN1", True, "
 teach_book3 = TeachBook("biology", "Иванов", "657", "ISBN1", False, "Информатика", "3г", False)
 
 for book in [teach_book1, teach_book2, teach_book3]:
-    result = f"Название: {book.name_book}, Автор: {book.author}, страниц: {book.count_pages}, предмет: {book.predmet}, класс: {book.class_room}"
+    result = (f"Название: {book.name_book}, Автор: {book.author}, страниц: {book.count_pages}, предмет: {book.predmet}, "
+              f"класс: {book.class_room}")
     if book.is_reserved:
         result += ", зарезервирована"
     print(result)
