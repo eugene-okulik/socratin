@@ -1,0 +1,64 @@
+1)
+INSERT INTO st4.students
+(name, second_name, group_id)
+VALUES('Nikita', 'Erekle', 142);
+
+2) 
+INSERT INTO st4.books
+(title, taken_by_student_id)
+VALUES('Чехов Любовь и Голуби', 205);
+INSERT INTO st4.books
+(title, taken_by_student_id)
+VALUES('Достоевский Идиот', 205);
+INSERT INTO st4.books
+(title, taken_by_student_id)
+VALUES('Тимирязев ', 205);
+
+3)
+INSERT INTO st4.`groups`
+(title, start_date, end_date)
+VALUES('BestGroup', 'Февраль 2024', 'Апрель 2024');
+
+4)
+INSERT INTO st4.subjets
+(title)
+VALUES('QA learning');
+INSERT INTO st4.subjets
+(title)
+VALUES('Ленинизм');
+
+5)
+INSERT INTO st4.lessons
+(title, subject_id)
+VALUES('Ненавистное занятие', 228);
+INSERT INTO st4.lessons
+(title, subject_id)
+VALUES('Забвение', 229);
+
+6) 
+INSERT INTO st4.marks
+(value, lesson_id, student_id)
+VALUES('5', 583, 205);
+INSERT INTO st4.marks
+(value, lesson_id, student_id)
+VALUES('5', 584, 205);
+
+
+7) 
+SELECT id, value, lesson_id, student_id
+FROM st4.marks
+WHERE student_id=205;
+
+8)
+SELECT id, title, taken_by_student_id
+FROM st4.books
+WHERE taken_by_student_id=205;
+
+9)
+SELECT students.*, books.*, marks.*, lessons.title, subjets.title 
+FROM students
+join books ON students.id = books.taken_by_student_id
+join marks on students.id = marks.student_id;
+join lessons on marks.lesson_id  = lessons.subject_id 
+join subjets on lessons.subject_id  = subjets.id 
+
