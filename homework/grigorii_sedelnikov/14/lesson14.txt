@@ -60,5 +60,6 @@ FROM students
 join books ON students.id = books.taken_by_student_id
 join marks on students.id = marks.student_id;
 join lessons on marks.lesson_id  = lessons.subject_id 
-join subjets on lessons.subject_id  = subjets.id 
+join subjets on lessons.subject_id  = subjets.id
+where students.id = 205
 
