@@ -3,10 +3,7 @@ INSERT INTO st4.students
 (name, second_name)
 VALUES('Nikita', 'Erekle');
 
-Добавление пользователя в группу 
-UPDATE students
-SET group_id = 142
-WHERE id = 505
+
 
 2) 
 INSERT INTO st4.books
@@ -23,6 +20,11 @@ VALUES('Тимирязев ', 505);
 INSERT INTO st4.`groups`
 (title, start_date, end_date)
 VALUES('BestGroup', 'Февраль 2024', 'Апрель 2024');
+
+Добавление пользователя в группу 
+UPDATE students
+SET group_id = 142
+WHERE id = 505
 
 4)
 INSERT INTO st4.subjets
