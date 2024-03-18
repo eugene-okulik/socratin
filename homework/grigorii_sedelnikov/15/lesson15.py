@@ -78,3 +78,4 @@ cursor.execute("select * from st4.students "
 final = cursor.fetchall()
 for rom in final:
     print(rom)
+
