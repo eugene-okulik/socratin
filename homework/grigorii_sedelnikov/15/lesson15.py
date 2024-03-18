@@ -68,12 +68,12 @@ for rom in results:
     print(rom)
 
 # Все что есть о студенте в базе
-cursor.execute(f"select * from st4.students "
-               f"Join st4.books on st4.students.id = st4.books.taken_by_student_id "
-               f"Join st4.groups on st4.students.group_id = st4.groups.id "
-               f"Join st4.subjets on st4.books.title = st4.subjets.title "
-               f"Join st4.lessons on st4.subjets.id = st4.lessons.subject_id "
-               f"Join st4.marks on st4.lessons.id = st4.marks.lesson_id "
+cursor.execute("select * from st4.students "
+               "Join st4.books on st4.students.id = st4.books.taken_by_student_id "
+               "Join st4.groups on st4.students.group_id = st4.groups.id "
+               "Join st4.subjets on st4.books.title = st4.subjets.title "
+               "Join st4.lessons on st4.subjets.id = st4.lessons.subject_id "
+               "Join st4.marks on st4.lessons.id = st4.marks.lesson_id "
                f"where students.id = {global_id}")
 final = cursor.fetchall()
 for rom in final:
