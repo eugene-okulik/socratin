@@ -27,7 +27,8 @@ db.commit()
 # Создание группы и прикрепление студента к группе
 book_name = ["Тестовая книга", "Тестовая книга 2"]
 cursor.execute(
-    f"INSERT INTO st4.groups (title, start_date, end_date) VALUES('тестировщики 2024', '2024-01-01', '2024-12-31')")
+    f"INSERT INTO st4.groups (title, start_date, end_date) "
+    f"VALUES('тестировщики 2024', '2024-01-01', '2024-12-31')")
 id_group = cursor.lastrowid
 cursor.execute(f"UPDATE st4.students SET group_id = {id_group} WHERE id = {global_id}")
 db.commit()
