@@ -26,17 +26,17 @@ for key, value in file_dict.items():
     value = value.split(",")
     query = ("SELECT * FROM students "
              "JOIN books ON students.id = books.taken_by_student_id "
-             "JOIN groups ON students.group_id = groups.id "
-             "JOIN subjets"
+             "JOIN `groups` ON students.group_id = `groups`.id "
+             "JOIN subjets "
              "JOIN lessons ON subjets.id = lessons.subject_id "
              "JOIN marks ON lessons.id = marks.lesson_id "
              "WHERE students.name = %s "
              "AND students.second_name = %s "
-             "AND groups.title = %s "
+             "AND `groups`.title = %s "
              "AND books.title = %s "
              "AND subjets.title = %s "
              "AND lessons.title = %s "
              "AND marks.value = %s")
-    cursor.execute(query, (value[0], value[1], value[2], value[3], value[4], value[5], int(value[6])))
+    cursor.execute(query, (value[0], value[1], value[2], value[3], value[4], value[5], value[6]))
     if not cursor.fetchall():
         print(key, value)
