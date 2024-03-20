@@ -24,18 +24,19 @@ cursor = db.cursor(dictionary=True)
 del file_dict[1]
 for key, value in file_dict.items():
     value = value.split(",")
-    cursor.execute(f"select * from st4.students "
-                   f"Join st4.books on st4.students.id = st4.books.taken_by_student_id "
-                   f"Join st4.groups on st4.students.group_id = st4.groups.id "
-                   f"Join st4.subjets on st4.books.title = st4.subjets.title "
-                   f"Join st4.lessons on st4.subjets.id = st4.lessons.subject_id "
-                   f"Join st4.marks on st4.lessons.id = st4.marks.lesson_id "
-                   f"where students.name = '{value[0]}' "
-                   f"and students.second_name = {value[1]} "
-                   f"and groups.title = {value[2]} "
-                   f"and books.title = {value[3]} "
-                   f"and subjets.title = '{value[4]}' "
-                   f"and lessons.title = {value[5]} "
-                   f"and marks.value = {int(value[6])}")
+    query = ("SELECT * FROM st4.students "
+             "JOIN st4.books ON st4.students.id = st4.books.taken_by_student_id "
+             "JOIN st4.groups ON st4.students.group_id = st4.groups.id "
+             "JOIN st4.subjets ON st4.books.title = st4.subjets.title "
+             "JOIN st4.lessons ON st4.subjets.id = st4.lessons.subject_id "
+             "JOIN st4.marks ON st4.lessons.id = st4.marks.lesson_id "
+             "WHERE students.name = %s "
+             "AND students.second_name = %s "
+             "AND groups.title = %s "
+             "AND books.title = %s "
+             "AND subjets.title = %s "
+             "AND lessons.title = %s "
+             "AND marks.value = %s")
+    cursor.execute(query, (value[0], value[1], value[2], value[3], value[4], value[5], int(value[6])))
     if cursor.lastrowid == 0:
         print(key, value)
