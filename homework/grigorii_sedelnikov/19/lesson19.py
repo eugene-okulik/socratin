@@ -6,13 +6,6 @@ import requests
 warnings.filterwarnings("ignore")
 
 
-@pytest.fixture(autouse=True)
-def ignore_warnings():
-    with warnings.catch_warnings():
-        warnings.simplefilter("ignore")
-        yield
-
-
 @pytest.fixture(scope="session")
 def print_start_and_end():
     print("Start testing")
@@ -61,7 +54,6 @@ def test_create_object(print_start_and_end, start_print_test, name, year, price,
     }
     response = requests.post(url, json=data)
     assert response.status_code == 200
-    return response.json().get("id")
 
 
 def test_update_object(create_object_and_delete, print_start_and_end, start_print_test):
