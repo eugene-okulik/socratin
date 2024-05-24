@@ -42,21 +42,11 @@ def test_part2(driver):
         By.XPATH, "//div[@class='custom-control custom-radio custom-control-inline']")
     gender_field[0].click()
     driver.find_element(By.ID, "userNumber").send_keys("1234567890")
-
+    driver.find_element(By.ID, "subjectsInput").send_keys("Moscwo")
     driver.find_element(By.XPATH, "//label[text()='Sports']").click()
     driver.find_element(By.ID, "currentAddress").send_keys("Moscow 13")
     button_submot = driver.find_element(By.XPATH, "//button[@id='submit']")
     driver.execute_script("arguments[0].scrollIntoView();", button_submot)
-
-    driver.find_element(By.ID, "react-select-3-input").send_keys("NCR")
-    driver.find_element(By.ID, "react-select-3-input").send_keys(Keys.ENTER)
-
-    driver.find_element(By.ID, "react-select-4-input").send_keys("Delhi")
-    driver.find_element(By.ID, "react-select-4-input").send_keys(Keys.ENTER)
-
-    driver.find_element(By.ID, "subjectsInput").send_keys("Maths")
-    driver.find_element(By.ID, "subjectsInput").send_keys(Keys.ENTER)
-
     button_submot.click()
 
     for i in driver.find_elements(By.XPATH, "//tbody/tr"):
