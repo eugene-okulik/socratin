@@ -1,3 +1,5 @@
+import time
+
 from playwright.sync_api import Page, expect
 
 
@@ -17,11 +19,15 @@ def test_2(page: Page):
     page.locator('label.custom-control-label', has_text='Other').click()
     page.get_by_role('textbox', name='Mobile Number').fill("0999098888")
     page.locator('#dateOfBirthInput').fill("22 Jun 1996")
-    page.locator('#subjectsInput').fill('Mathematics, Physics')
+    page.locator('#subjectsInput').fill('Maths')
+    page.keyboard.press("Enter")
     page.locator('label[for="hobbies-checkbox-2"]').click()
     page.locator('#currentAddress').type("New York")
     page.locator('#react-select-3-input').fill("NCR")
+    page.keyboard.press("Enter")
     page.locator('#react-select-4-input').type("Gurgaon")
+    page.keyboard.press("Enter")
     page.locator('#submit').click()
+    time.sleep(5)
     expect(page.locator('div.modal-title.h4#example-modal-sizes-title-lg')).to_have_text(
         "Thanks for submitting the form")
