@@ -1,0 +1,29 @@
+<  ESC-<   
+	Go to first line in file
+>  ESC->
+	Go to last line in file
+^F  ^V  SPACE
+	Forward one window
+^E  j  ^N  CR
+	Forward one line
+^Y  k  ^K  ^P
+	Backward one line
+/pattern     
+	Search forward for matching line
+?pattern  
+	Search backward for matching line
+ n
+	Repeat previous search
+N
+	Repeat previous search in reverse direction
+
+
+2. /dev/null Ц inode-chardevice
+/dev/zero - inode-chardevice
+/dev/sda Ц такого файла нет
+/dev/tty Ц text/patterns
+/root - text/patterns
+/etc/passwd - text/patterns
+/proc/mounts - text/patterns
+/bin/ls - text/patterns
+/bin/zcat - text/patterns
