@@ -1,4 +1,4 @@
-import time, requests
+import time
 
 import requests
 
